@@ -1,19 +1,33 @@
 function removeDuplicates(n, nums) {
-    if (n === 0) return 0; 
-    
-    let k = 0; 
+    let arr=[2, 2, 2, 3, 4, 4, 9];
 
-    for (let i = 0; i < n; i++) {
-      
-        if (k < 2 || nums[i] !== nums[k - 2]) {
-            nums[k] = nums[i];
-            k++;
-        }
+
+    function removeDuplicatesFromSortedArrayII(arr,n){
+       
+       let i=0;
+       let j=0;
+       
+       let cnt=0;
+       while(i<n){
+           if(i>0&& arr[i]!=arr[i-1]){
+               cnt=0;
+           }
+           cnt++;
+           if(cnt<=2){
+               arr[j]=arr[i];
+               j++;
+           }
+           i++
+       }
+       
+       return arr;
+       
     }
-
-
-    console.log(k); 
-    console.log(nums.slice(0, k).join(' ')); 
+    
+    
+    let ans=removeDuplicatesFromSortedArrayII(arr,7);
+    
+    console.log(ans);
 }
 
 
